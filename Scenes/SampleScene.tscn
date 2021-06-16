@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/PlayerMovement.cs" type="Script" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[node name="SampleScene" type="Node2D"]
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 4, 4 )
+
+[node name="Cat A" type="Node2D" parent="Viewport"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport/Cat A"]
+visible = false
+
+[node name="RigidBody2D" type="KinematicBody2D" parent="Viewport/Cat A"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/Cat A/RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="FaceSprite" type="AnimatedSprite" parent="Viewport/Cat A/RigidBody2D"]
+
+[node name="TailA" type="Node2D" parent="Viewport/Cat A/RigidBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport/Cat A/RigidBody2D/TailA"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Viewport/Cat A/RigidBody2D/TailA"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/Cat A/RigidBody2D/TailA/RigidBody2D"]
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Viewport/Cat A/RigidBody2D/TailA/RigidBody2D"]
+
+[node name="Camera2D" type="Camera2D" parent="Viewport"]
+
+[node name="Cat B" type="Node2D" parent="Viewport"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport/Cat B"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Viewport/Cat B"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/Cat B/RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="FaceSprite" type="AnimatedSprite" parent="Viewport/Cat B/RigidBody2D"]
+
+[node name="TailB" type="Node2D" parent="Viewport/Cat B/RigidBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport/Cat B/RigidBody2D/TailB"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Viewport/Cat B/RigidBody2D/TailB"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/Cat B/RigidBody2D/TailB/RigidBody2D"]
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Viewport/Cat B/RigidBody2D/TailB/RigidBody2D"]

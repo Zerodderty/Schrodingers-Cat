@@ -1,0 +1,16 @@
+TODO: 6/15/2021
+
+
+NOTES FROM THE ZERODDERTY
+
+So I’ve decided to take on the task of porting
+Its, hefty, rn I’m going through the codebase to get all the code moved over
+The raw assets are done, as is the structure of the sample scene
+Right now im mainly just copying over the code and replacing what I need to from unity to godot
+I swapped the cats rigidbodies for kinematicbodies because rigid bodies don’t have the move feature in godot… which makes sense because thats what kinematic bodies are for
+The rest of the rigidbodies should stay put though
+After the code gets moved over I’ll have to rebuild the animation tree and sprite sheets from scratch- they’re very similar to unity but unity’s are proprietary so I can’t exactly move the files over
+Then rebuild the main menu ui
+Then rebuild the tile palate based off pix’s sprites
+I’ll lyk how far I manage to push myself in that tonight, ideally I hit a good stopping point and upload all this shit to github to get tidied up first thing tomorrow, after which point we can move over to level implementation
+I’m on break rn but I’ll probably try to push myself for another hour before stopping for the night, which yeah means we might have to pass up getting looked at- all the things I’m doing now are the right thing to get this done the right way, which I’m putting above getting something we don’t want out, but if there’s still a shot I’ll hustle for early tomorrow
