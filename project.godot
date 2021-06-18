@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Cat Port"
+run/main_scene="res://Scenes/SampleScene.tscn"
 config/icon="res://icon.png"
 
 [gdnative]

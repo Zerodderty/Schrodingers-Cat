@@ -26,9 +26,9 @@ public class PlayerMovement : RigidBody2D
 		movement.y = Input.GetAxisRaw("Vertical" + playerType);
 		
 		// TODO: Create animatior, add paths to playermovement
-		animator.Set("Horizontal", movement.x);
-		animator.Set("Vertical", movement.y);
-		animator.Set("Speed", movement.LengthSquared());
+		animator.Set("parameters/movement/Horizontal", movement.x);
+		animator.Set("parameters/movement/Vertical", movement.y);
+		animator.Set("parameters/movement/Speed", movement.LengthSquared());
  	}
 	
 	public override void _PhysicsProcess(float delta)

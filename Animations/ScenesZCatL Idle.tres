@@ -14,7 +14,7 @@ resource_name = "ZCatL Idle"
 length = 4.0
 step = 1.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/CatBody:texture")
+tracks/0/path = NodePath("../AnimationPlayer/CatBody:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayer/CatFace:texture")
+tracks/1/path = NodePath("../AnimationPlayer/CatFace:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
