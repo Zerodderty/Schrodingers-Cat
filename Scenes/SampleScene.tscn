@@ -1,56 +1,153 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=35 format=2]
 
-[ext_resource path="res://Scenes/PlayerMovement.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/PlayerMovement.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRun4.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRun1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRunFACE5.png" type="Texture" id=4]
+[ext_resource path="res://Animations/ScenesZCatR Run.tres" type="Animation" id=5]
+[ext_resource path="res://Animations/ScenesCatU Run.tres" type="Animation" id=6]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRun5.png" type="Texture" id=7]
+[ext_resource path="res://Animations/ScenesCatR Idle.tres" type="Animation" id=8]
+[ext_resource path="res://Animations/ScenesZCatL Idle.tres" type="Animation" id=9]
+[ext_resource path="res://Animations/ScenesZCatL Run.tres" type="Animation" id=10]
+[ext_resource path="res://Animations/ScenesCatD Run.tres" type="Animation" id=11]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRun3.png" type="Texture" id=12]
+[ext_resource path="res://Animations/ScenesCatL Idle.tres" type="Animation" id=13]
+[ext_resource path="res://Animations/ScenesCatR Run.tres" type="Animation" id=14]
+[ext_resource path="res://Animations/ScenesZCatD Idle .tres" type="Animation" id=15]
+[ext_resource path="res://Animations/ScenesCatU Idle.tres" type="Animation" id=16]
+[ext_resource path="res://Animations/ScenesZCatR Idle.tres" type="Animation" id=17]
+[ext_resource path="res://Animations/ScenesZCatD Run .tres" type="Animation" id=18]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRun6.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRun2.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRunFACE1.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRunFACE2.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRunFACE3.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRunFACE6.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Cats/CatL_Run/CatLRunFACE4.png" type="Texture" id=56]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
+[sub_resource type="Animation" id=6]
+resource_name = "CatL Run"
+length = 6.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/CatBody:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 25 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 24 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/CatFace:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 56 ), ExtResource( 4 ), ExtResource( 43 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "CatL Idle"
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachine" id=11]
+"states/CatL Idle/node" = SubResource( 7 )
+"states/CatL Idle/position" = Vector2( 378.5, 66.75 )
+states/Entry/node = SubResource( 8 )
+states/Entry/position = Vector2( 177.5, 66.5 )
+states/Movement/node = SubResource( 9 )
+states/Movement/position = Vector2( 583.5, 67.125 )
+transitions = [ "Entry", "CatL Idle", SubResource( 10 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+
 [node name="SampleScene" type="Node2D"]
 
-[node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 4, 4 )
+[node name="Cat A" type="Node2D" parent="."]
 
-[node name="Cat A" type="Node2D" parent="Viewport"]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport/Cat A"]
-visible = false
-
-[node name="RigidBody2D" type="KinematicBody2D" parent="Viewport/Cat A"]
+[node name="RigidBody2D" type="KinematicBody2D" parent="Cat A"]
 script = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/Cat A/RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat A/RigidBody2D"]
 shape = SubResource( 1 )
 
-[node name="FaceSprite" type="AnimatedSprite" parent="Viewport/Cat A/RigidBody2D"]
+[node name="TailA" type="Node2D" parent="Cat A/RigidBody2D"]
 
-[node name="TailA" type="Node2D" parent="Viewport/Cat A/RigidBody2D"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Cat A/RigidBody2D/TailA"]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport/Cat A/RigidBody2D/TailA"]
+[node name="RigidBody2D" type="RigidBody2D" parent="Cat A/RigidBody2D/TailA"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Viewport/Cat A/RigidBody2D/TailA"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat A/RigidBody2D/TailA/RigidBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/Cat A/RigidBody2D/TailA/RigidBody2D"]
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Cat A/RigidBody2D/TailA/RigidBody2D"]
 
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Viewport/Cat A/RigidBody2D/TailA/RigidBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cat A/RigidBody2D"]
+"anims/CatD Idle" = ExtResource( 15 )
+"anims/CatD Run" = ExtResource( 11 )
+"anims/CatL Idle" = ExtResource( 13 )
+"anims/CatL Run" = SubResource( 6 )
+"anims/CatR Idle" = ExtResource( 8 )
+"anims/CatR Run" = ExtResource( 14 )
+"anims/CatU Idle" = ExtResource( 16 )
+"anims/CatU Run" = ExtResource( 6 )
+"anims/ZCatD Idle " = ExtResource( 15 )
+"anims/ZCatD Run " = ExtResource( 18 )
+"anims/ZCatL Idle" = ExtResource( 9 )
+"anims/ZCatL Run" = ExtResource( 10 )
+"anims/ZCatR Idle" = ExtResource( 17 )
+"anims/ZCatR Run" = ExtResource( 5 )
 
-[node name="Camera2D" type="Camera2D" parent="Viewport"]
+[node name="CatBody" type="Sprite" parent="Cat A/RigidBody2D/AnimationPlayer"]
+visible = false
+texture = ExtResource( 24 )
 
-[node name="Cat B" type="Node2D" parent="Viewport"]
+[node name="CatFace" type="Sprite" parent="Cat A/RigidBody2D/AnimationPlayer"]
+texture = ExtResource( 43 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport/Cat B"]
+[node name="AnimationTree" type="AnimationTree" parent="Cat A/RigidBody2D"]
+tree_root = SubResource( 11 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 12 )
+parameters/Entry/playback = SubResource( 13 )
+parameters/Movement/blend_position = Vector2( 0, 0 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Viewport/Cat B"]
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/Cat B/RigidBody2D"]
+[node name="Cat B" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Cat B"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Cat B"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat B/RigidBody2D"]
 shape = SubResource( 1 )
 
-[node name="FaceSprite" type="AnimatedSprite" parent="Viewport/Cat B/RigidBody2D"]
+[node name="FaceSprite" type="AnimatedSprite" parent="Cat B/RigidBody2D"]
 
-[node name="TailB" type="Node2D" parent="Viewport/Cat B/RigidBody2D"]
+[node name="TailB" type="Node2D" parent="Cat B/RigidBody2D"]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport/Cat B/RigidBody2D/TailB"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Cat B/RigidBody2D/TailB"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Viewport/Cat B/RigidBody2D/TailB"]
+[node name="RigidBody2D" type="RigidBody2D" parent="Cat B/RigidBody2D/TailB"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/Cat B/RigidBody2D/TailB/RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat B/RigidBody2D/TailB/RigidBody2D"]
 
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Viewport/Cat B/RigidBody2D/TailB/RigidBody2D"]
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Cat B/RigidBody2D/TailB/RigidBody2D"]

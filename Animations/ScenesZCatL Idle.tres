@@ -1,0 +1,39 @@
+[gd_resource type="Animation" load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/Cats/CatL_Idle/CatLZOMBIE1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Cats/CatL_Idle/CatLZOMBIE2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Cats/CatL_Idle/CatLZOMBIE4.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Cats/CatL_Idle/CatLZombieFACE1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Cats/CatL_Idle/CatLZombieFACE3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Cats/CatL_Idle/CatLZombieFACE2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Cats/CatL_Idle/CatLZombieFACE4.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Cats/CatL_Idle/CatLZOMBIE3.png" type="Texture" id=8]
+
+[resource]
+resource_name = "ZCatL Idle"
+length = 4.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/CatBody:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/CatFace:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
+}
