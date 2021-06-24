@@ -1,0 +1,4 @@
+C:\Users\perso\Documents\Gaming Shit\Godot Stuff\CatPort\.mono\temp\obj\Debug\Cat Port.csproj.AssemblyReference.cache
+C:\Users\perso\Documents\Gaming Shit\Godot Stuff\CatPort\.mono\temp\obj\Debug\Cat Port.AssemblyInfoInputs.cache
+C:\Users\perso\Documents\Gaming Shit\Godot Stuff\CatPort\.mono\temp\obj\Debug\Cat Port.AssemblyInfo.cs
+C:\Users\perso\Documents\Gaming Shit\Godot Stuff\CatPort\.mono\temp\obj\Debug\Cat Port.csproj.CoreCompileInputs.cache

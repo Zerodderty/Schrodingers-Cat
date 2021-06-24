@@ -22,8 +22,14 @@ public class PlayerMovement : RigidBody2D
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		movement.x = Input.GetAxisRaw("Horizontal" + playerType);
-		movement.y = Input.GetAxisRaw("Vertical" + playerType);
+		float right =  Input.GetActionStrength("Right" + playerType);
+		float left = Input.GetActionStrength("Left" + playerType);
+		float up = Input.GetActionStrength("Up" + playerType);
+		float down = Input.GetActionStrength("Down" + playerType);
+		
+		
+		movement.x = right - left; 
+		movement.y = down - up; 
 		
 		// TODO: Create animatior, add paths to playermovement
 		animator.Set("parameters/movement/Horizontal", movement.x);
@@ -34,13 +40,13 @@ public class PlayerMovement : RigidBody2D
 	public override void _PhysicsProcess(float delta)
 	{
 		// if no input
-		if(movement == Vector2.zero) {
+		if(movement == Vector2.Zero) {
 			moveSpeed = 0;
 		} else if (moveSpeed <= Init.maxSpeed) {
 			moveSpeed += acceleration; 
 		}
 	  
-		kb.MoveAndCollide(kb.position + movement * moveSpeed * delta)
+		kb.MoveAndCollide(movement * moveSpeed * delta);
 
 
 	}

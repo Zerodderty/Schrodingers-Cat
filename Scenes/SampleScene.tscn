@@ -127,10 +127,9 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 
-[sub_resource type="RectangleShape2D" id=25]
+[sub_resource type="RectangleShape2D" id=2]
 
-[sub_resource type="Animation" id=2]
-resource_name = "CatL Run"
+[sub_resource type="Animation" id=3]
 length = 6.0
 step = 1.0
 tracks/0/type = "value"
@@ -158,43 +157,41 @@ tracks/1/keys = {
 "values": [ ExtResource( 33 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 56 ), ExtResource( 4 ), ExtResource( 43 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=3]
+[sub_resource type="AnimationNodeAnimation" id=4]
 animation = "CatD Idle"
 
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "CatL Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "CatR Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=6]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "CatU Idle"
 
-[sub_resource type="AnimationNodeStateMachine" id=7]
-
-[sub_resource type="AnimationNodeAnimation" id=8]
-animation = "CatR Run"
+[sub_resource type="AnimationNodeStateMachine" id=8]
 
 [sub_resource type="AnimationNodeAnimation" id=9]
-animation = "CatD Run"
-
-[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "CatR Run"
 
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "CatD Run"
+
 [sub_resource type="AnimationNodeAnimation" id=11]
+animation = "CatR Run"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "CatL Run"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=12]
-blend_point_0/node = SubResource( 8 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=13]
+blend_point_0/node = SubResource( 9 )
 blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 9 )
+blend_point_1/node = SubResource( 10 )
 blend_point_1/pos = Vector2( 0, -1 )
-blend_point_2/node = SubResource( 10 )
+blend_point_2/node = SubResource( 11 )
 blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 11 )
+blend_point_3/node = SubResource( 12 )
 blend_point_3/pos = Vector2( -1, 0 )
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=14]
 
@@ -212,24 +209,26 @@ blend_point_3/pos = Vector2( -1, 0 )
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
 
-[sub_resource type="AnimationNodeStateMachine" id=22]
-"states/CatD Idle/node" = SubResource( 3 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachine" id=23]
+"states/CatD Idle/node" = SubResource( 4 )
 "states/CatD Idle/position" = Vector2( 406.5, 157.5 )
 "states/CatL Idle/node" = SubResource( 5 )
 "states/CatL Idle/position" = Vector2( 197.5, 87.2195 )
-"states/CatR Idle 2\\/node" = SubResource( 4 )
+"states/CatR Idle 2\\/node" = SubResource( 6 )
 "states/CatR Idle 2\\/position" = Vector2( 591.5, 90.7717 )
-"states/CatU Idle/node" = SubResource( 6 )
+"states/CatU Idle/node" = SubResource( 7 )
 "states/CatU Idle/position" = Vector2( 407, 32.5 )
-states/Entry/node = SubResource( 7 )
+states/Entry/node = SubResource( 8 )
 states/Entry/position = Vector2( 766.5, 93.0477 )
-states/Movement/node = SubResource( 12 )
+states/Movement/node = SubResource( 13 )
 states/Movement/position = Vector2( 406.625, 88.0542 )
-transitions = [ "Entry", "CatR Idle 2\\", SubResource( 13 ), "CatR Idle 2\\", "Movement", SubResource( 14 ), "CatU Idle", "Movement", SubResource( 15 ), "Movement", "CatU Idle", SubResource( 16 ), "Movement", "CatD Idle", SubResource( 17 ), "CatD Idle", "Movement", SubResource( 18 ), "Movement", "CatR Idle 2\\", SubResource( 19 ), "Movement", "CatL Idle", SubResource( 20 ), "CatL Idle", "Movement", SubResource( 21 ) ]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
+transitions = [ "Entry", "CatR Idle 2\\", SubResource( 14 ), "CatR Idle 2\\", "Movement", SubResource( 15 ), "CatU Idle", "Movement", SubResource( 16 ), "Movement", "CatU Idle", SubResource( 17 ), "Movement", "CatD Idle", SubResource( 18 ), "CatD Idle", "Movement", SubResource( 19 ), "Movement", "CatR Idle 2\\", SubResource( 20 ), "Movement", "CatL Idle", SubResource( 21 ), "CatL Idle", "Movement", SubResource( 22 ) ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=24]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=25]
 
 [sub_resource type="Animation" id=26]
 resource_name = "ZCatD Idle "
@@ -631,7 +630,7 @@ shape = SubResource( 1 )
 [node name="RigidBody2D" type="RigidBody2D" parent="Cat A/RigidBody2D/TailA"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat A/RigidBody2D/TailA/RigidBody2D"]
-shape = SubResource( 25 )
+shape = SubResource( 2 )
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Cat A/RigidBody2D/TailA/RigidBody2D"]
 
@@ -642,7 +641,7 @@ texture = ExtResource( 93 )
 "anims/CatD Idle" = ExtResource( 15 )
 "anims/CatD Run" = ExtResource( 11 )
 "anims/CatL Idle" = ExtResource( 13 )
-"anims/CatL Run" = SubResource( 2 )
+"anims/CatL Run" = SubResource( 3 )
 "anims/CatR Idle" = ExtResource( 8 )
 "anims/CatR Run" = ExtResource( 14 )
 "anims/CatU Idle" = ExtResource( 16 )
@@ -662,10 +661,10 @@ texture = ExtResource( 24 )
 texture = ExtResource( 43 )
 
 [node name="AnimationTree" type="AnimationTree" parent="Cat A"]
-tree_root = SubResource( 22 )
+tree_root = SubResource( 23 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 23 )
-parameters/Entry/playback = SubResource( 24 )
+parameters/playback = SubResource( 24 )
+parameters/Entry/playback = SubResource( 25 )
 parameters/Movement/blend_position = Vector2( 0.00500631, 0.994286 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -683,7 +682,7 @@ shape = SubResource( 1 )
 [node name="RigidBody2D" type="RigidBody2D" parent="Cat B/RigidBody2D/TailA"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat B/RigidBody2D/TailA/RigidBody2D"]
-shape = SubResource( 25 )
+shape = SubResource( 2 )
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Cat B/RigidBody2D/TailA/RigidBody2D"]
 
@@ -714,7 +713,7 @@ texture = ExtResource( 24 )
 texture = ExtResource( 43 )
 
 [node name="AnimationTree" type="AnimationTree" parent="Cat B"]
-tree_root = SubResource( 22 )
+tree_root = SubResource( 23 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 40 )
 parameters/Entry/playback = SubResource( 41 )

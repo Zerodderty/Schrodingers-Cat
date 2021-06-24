@@ -1,29 +1,26 @@
 using Godot;
 using System;
 
-public class MainMenu : Node
+public class MiddleLink : Node
 {
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
-	
-	SceneTree tree; 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		tree = GetTree(); 
+		
 	}
 	
-	public void PlayGame()
+	
+	public void ConnectRopeEnd(NodePath endRB)
 	{
-		tree.ChangeScene("res://Scenes/SampleScene.tscn"); 
-	}
+		DampedSpringJoint2D joint = new DampedSpringJoint2D(); 
+		AddChild(joint); 
+		joint.Owner = GetEditedSceneRoot(); 
 
-	public void QuitGame()
-	{
-		tree.Quit();
-		Console.WriteLine("Quit");
+		Init.InitializeSpringJoint(joint, endRB); 
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
